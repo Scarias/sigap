@@ -1,8 +1,8 @@
 ---
-
+import Login from '../components/home/login.astro';
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,7 +10,13 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="h-screen bg-dark-neutral">
+		<div class="h-full flex flex-col justify-center items-center text-center">
+      <h1 class="text-6xl text-dark-primary">SIGAP</h1>
+      <p class="py-2 text-3xl text-white">
+        <i>SIGA</i>, cada vez más cerca de tí
+      </p>
+      <Login />
+    </div>
 	</body>
 </html>
