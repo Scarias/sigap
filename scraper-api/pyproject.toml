@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "scraper-api"
+version = "0.1.0"
+description = "API para interaccionar con la página de SIGA"
+authors = ["Bastian Soto Iturra <bsoto.it@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = {extras = ["all"], version = "^0.103.1"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
