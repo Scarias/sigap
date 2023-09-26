@@ -1,13 +1,10 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import ElementNotVisibleException
 
-
-driver = webdriver.Firefox()
-driver.implicitly_wait(10)
+from scraper_api.scraper import driver
 
 async def login_user(user, domain, password):
     driver.get('https://siga.usm.cl/')
@@ -32,7 +29,7 @@ async def login_user(user, domain, password):
     print(login_button)
 
     try:
-        menu = driver.find_element()
+        driver.find_element()
         return True
     except ElementNotVisibleException:
         return False
