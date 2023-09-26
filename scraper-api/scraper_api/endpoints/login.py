@@ -1,8 +1,16 @@
-from scraper_api import app
+from typing import Annotated
+from fastapi import APIRouter, Form
 
-from scraper_api.scraper import login_user
+from scraper_api.scraper.login import login_user
 
-@app.get('/login')
-async def login(user: str, domain: str, password: str):
-    result = await login_user(user, domain, password)
-    return { 'message': 'login exitoso' if result else 'login fallido' }
+
+router = APIRouter()
+
+
+@router.post('/login')
+async def login(user: Annotated[str, Form()], domain: Annotated[str, Form()], password: Annotated[str, Form()]):
+    result, msg = await login_user(user, domain, password)
+    return {
+        'logged': result,
+        'message': msg,
+    }
