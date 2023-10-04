@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "siga-api"
+version = "0.1.0"
+description = "Una API con web scraping para usar SIGA"
+authors = ["Bastian Soto Iturra <bsoto.it@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = {extras = ["all"], version = "^0.103.2"}
+selenium = "^4.13.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
