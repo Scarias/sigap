@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
-import errors
+from .errors import *
 
 
 def start_browser(url: str) -> webdriver.Firefox:
@@ -21,7 +21,7 @@ def login(username: str, domain: str, password: str):
     # Get & fill domain
     domain_field = Select(driver.find_element(By.NAME, 'server'))
     if domain not in domain_field.options:
-        raise errors.InvalidDomainException(f'Client domain "{domain}" not exists.')
+        raise InvalidDomainException(f'Client domain "{domain}" not exists.')
     
     domain_field.select_by_value(domain)
     
@@ -35,4 +35,4 @@ def login(username: str, domain: str, password: str):
     
     # Raise exceptions on error
     if driver.current_url == 'https://siga.usm.cl/pag/error_ingreso_login.jsp':
-        raise errors.InvalidCredentialsException('Username not exists or password isn\'t valid')
+        raise InvalidCredentialsException('Username not exists or password isn\'t valid')

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-from models import User
+from .models import User
 from ..scraper import functions as fun, errors as err
 
 
